@@ -296,7 +296,17 @@ let lengthCount = Number(req.body.totalLength-1);
                 let m =0;
               var  trialcall1 =  function(m){
                     if(m=== lengthCheck){
+<<<<<<< HEAD
                         createDbs(files[m].contentType)
+=======
+                        setTimeout(function(){
+
+                      
+                        createDbs(files[m].contentType)
+                    
+                      },15000);
+                       // createDbs(files[m].contentType)
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
                         console.log(m+" no loop "+"   "+files[m].filename) 
                     }else{
                         shell.mkdir('-p',"./"+files[m].metadata)
@@ -401,8 +411,13 @@ res.json([]);
 //            const stream = gfs.createReadStream(files[i].filename);
     
 //     var eam = fs.createWriteStream(__dirname+/uploads/+files[i].metadata+"/"+files[i].filename);
+<<<<<<< HEAD
    
    
+=======
+   
+   
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 //              stream.pipe(eam);
    
 //    }
@@ -499,7 +514,11 @@ var trialCall123 = function() {
   
       }
    //  trialCall();
+<<<<<<< HEAD
 trialCall123();
+=======
+//trialCall123();
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
    //  setTimeout(trialCall, 1500 );
     //  setImmediate(() => {
     //     trialCall()
@@ -569,6 +588,7 @@ Filehound.create()
  
   });
 }//createDbs ()
+<<<<<<< HEAD
 
 //createDbs("projectjavatriall75645")
 
@@ -642,6 +662,81 @@ app.get('/mobileAppsDetails',function(req,res){
     })
   })
 
+=======
+
+//createDbs("projectjavatriall75645")
+
+//
+let createModuleAndFeature = function(data,data_Array){
+    // for module creation 
+    let modulesName = data.split("\\",(data_Array.length-1)).pop() ;
+    console.log("modulesName  "+modulesName);
+   // if(start == 1){
+        db.modulesName.insert({"moduleName":modulesName})
+   // }
+   // for feature creation 
+    let featureNames = data.split("\\",(data_Array.length)).pop() ;
+    let featureNameWitoutExt = featureNames.replace(".feature", "");
+    db.featureName.insert({"featureName":featureNameWitoutExt,"moduleName":modulesName})
+    createTestScript( data,featureNameWitoutExt,modulesName)
+}
+let createTestScript = function(file,featureName,moduleName){
+    console.log( typeof(file) + file);
+    let count =1;
+    console.log(file);
+    var LineByLineReader = require('line-by-line');
+   // lr = new LineByLineReader("./uploads/projectjavatriall756/Sample1/Features/abc.feature")
+   // lr = new LineByLineReader("uploads/projectjavatriall7564/Sample1/Features/abc.feature")
+    lr = new LineByLineReader(file)
+    console.log(lr)
+    lr.on('error', function (err) {
+        // 'err' contains error object
+        console.log(" error rr rr rr ")
+    });
+    
+    lr.on('line', function (line) {
+        console.log(" line line rr rr rr ")
+        console.log(count +" "+line)
+        if(line.includes("Scenario") == true){
+            var res = line.substr(line.indexOf(":")+1);
+            db.testScriptNames.insert({"scriptName":res,"featureName":featureName,"moduleName":moduleName,"lineNumber":count})
+    
+          console.log(count+"   Scenario  true ")
+          count++;
+    
+        }else{
+            count++;
+          //  console.log(" false  ")    
+        }
+        
+        // 'line' contains the current line without the trailing newline character.
+    });
+    
+    lr.on('end', function () {
+        console.log("  end end  Scenario  true ")
+        // All lines are read, file is closed now.
+    });
+}
+// var file = 'uploads\\projectjavatriall756\\Sample1\\Features\\abc.feature';
+// var featureName = "abc.feature";
+// var moduleName = "feature";
+// createTestScript(file,featureName,moduleName)
+
+const port=5666;
+app.listen(port,function() {
+  console.log("server running on port"+port);
+  // body...
+});
+
+
+app.get('/mobileAppsDetails',function(req,res){
+    db.mobileApps.find({},function(err,doc){
+        res.json(doc);
+       console.log(doc) ;
+    })
+  })
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 app.post('/postDevicesName',function(req,res)
 {
             // var str=abc.split("");
@@ -690,6 +785,7 @@ app.get('/getTestScriptDetails',function(req,res){
 
         console.log(featureName+'.'+lineNum);
         const Filehound = require('filehound');
+<<<<<<< HEAD
 
 Filehound.create()
   .ext('java')
@@ -747,6 +843,65 @@ Filehound.create()
           });
     }
 
+=======
+
+Filehound.create()
+  .ext('java')
+  .match('*TestRunnerNew.java*')
+  .paths("./projectjava")
+  .find((err, htmlFiles) => {
+    if (err) return console.error("handle err", err);
+    //var lineString = "\"Features/ACount:3\""
+        console.log(featureName+'.'+lineNum);
+        
+    var lineString = "\"Features/"+featureName+".feature:"+lineNum+"\"";
+    console.log(lineString);
+    console.log(htmlFiles);
+    var fs = require('fs');
+ var stream = fs.createWriteStream(htmlFiles[0]);
+ stream.once('open', function(fd) {
+   stream.write("package com.zephyr.testrunner;\n\n");
+   stream.write("import org.junit.runner.RunWith;\n\n");
+   stream.write("import cucumber.api.CucumberOptions;\n");
+   stream.write("import cucumber.api.junit.Cucumber;\n");
+   stream.write("import cucumber.api.testng.AbstractTestNGCucumberTests;\n\n");
+   stream.write("@RunWith(Cucumber.class)\n");
+
+   stream.write("@CucumberOptions(features="+"{"+lineString+"},"+"\n\n");
+
+   stream.write("//tags={"+"@Import1,@Export11,@Map1,@search1,@Edit1,@DND1"+"},\n\n");
+   stream.write("glue={\"com.zephyr.stepdefinition\"},\n");
+   stream.write("plugin = {\"html:target/cucumber-html-report\",\n");
+   stream.write("\"pretty:target/cucumber-pretty.txt,rerun:target/rerun.txt\",\n")
+   stream.write("\"json:target/cucumber6.json\"},\n")
+   stream.write("monochrome = false)\n\n")
+   stream.write("public class TestRunnerNew extends AbstractTestNGCucumberTests\n")
+   stream.write("{\n")
+   stream.write("}\n")
+   stream.end();
+   console.log("Replaced");
+   execTestRunner()
+ });
+ });
+       
+ 
+        // db.testScript.find({"scriptName" :scriptName,  "lineNum" :lineNum},function(err,doc){
+        //             res.json(doc);
+        //             console.log(doc)
+        //             })
+
+    })
+
+    var execTestRunner = function(){
+        console.log(" iam ready ")
+        require('child_process').exec(__dirname+"/trial.bat", (err, stdout, stderr) => {
+            if (err) throw err;
+              
+            console.log(stdout, stderr);       
+          });
+    }
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 app.get('/loginDetails',function(req,res){
      
     // console.log("ooooooooooooooooooo")

@@ -1,15 +1,27 @@
 <div style="margin-left: 500px;margin-top: 70px;font-size: 20px;">
     <span>
+<<<<<<< HEAD
             ModuleName:<select style="height: 25px;width: 150px;">
                     <option *ngFor="let module of modules">{{module.moduleName}}</option>
                  </select>
     </span>
 	
+=======
+            ModuleName:<select style="height: 25px;width: 150px;" [(ngModel)]="moduleSelected">
+                    <option *ngFor="let module of modules">{{module.moduleName}}</option>
+                 </select>
+    </span>
+  
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
     <br>
     <br>
     <br>
    <span style="margin-left: -4px">
+<<<<<<< HEAD
         FeatureName:<select style="height: 25px;width: 150px;margin-left: 1px">
+=======
+        FeatureName:<select style="height: 25px;width: 150px;margin-left: 1px" [(ngModel)]="featureSelected">
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
                 <option *ngFor="let feature of features">{{feature.featureName}}</option>
              </select>
    </span>
@@ -17,7 +29,11 @@
 <br>
 <br>
    <span style="margin-left: 77px;margin-top: 572px">
+<<<<<<< HEAD
         Type:<select style="height: 25px;width: 150px">
+=======
+        Type:<select style="height: 25px;width: 150px" [(ngModel)]="typeSelected">
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
                 <option *ngFor="let type of types">{{type.typeScenario}}</option>
              </select>
    </span>
@@ -25,7 +41,11 @@
 <br>
 <br>
 <span style="margin-left: 55px">
+<<<<<<< HEAD
        Priority:<select style="height: 25px;width: 150px;margin-left: 4px" >
+=======
+       Priority:<select style="height: 25px;width: 150px;margin-left: 4px" [(ngModel)]="prioritySelected">
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
                 <option *ngFor="let priority of priorities">{{priority.priorityScenario}}</option>
              </select>
 </span>
@@ -33,6 +53,7 @@
    <br>
    <br>
 <span style="margin-left: -18px;">
+<<<<<<< HEAD
         Estimated Time:<input type="time" step="1" style="width: 150px;" >
         <br><br>
         <br>
@@ -41,6 +62,19 @@
 </span>
 <span>
     <button style="background-color: green;height: 35px;width: 80px;margin-left: 45px">Save</button>
+=======
+        Estimated Time:<input type="number"  style="width: 150px;" [(ngModel)]="timeGiven">
+        <br><br>
+        scripts:<input type="text" >
+        <br>
+
+        <br>
+      ImportScript:<input type="file" (change)="getfolder($event)">
+</span>
+ <br>
+ <span>
+    <button style="background-color: green;height: 35px;width: 80px;margin-left: 45px" (click)="saveImportData()">Save</button>
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 </span>
  <router-outlet></router-outlet>  
 </div>

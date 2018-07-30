@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { Component, Input,OnInit} from '@angular/core';
 
+=======
+import { Component, Input,OnInit,OnDestroy} from '@angular/core';
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProjectDetailServiceComponent } from './pDetail.service';
@@ -19,6 +23,7 @@ import {SelectionComponent} from './projectSelection.component';
 
 })//componrnt  closing
 
+<<<<<<< HEAD
 export class ProjectDetailComponent implements OnInit  {
    moduleChild:Post[];
   // moduleId:Post[];
@@ -34,25 +39,62 @@ moduleName:any;
     mo:boolean;
     execute:boolean;
     con:boolean;
+=======
+export class ProjectDetailComponent implements OnInit,OnDestroy  {
+   moduleChild:Post[];
+   increment:Post[];
+ selectedMod:Post[];
+ sMN:string;
+ ind:number;
+  mo:boolean;
+    execute:boolean;
+  //all=[];
+  //temp: any[];
+moduleName:Post[];
+    projectName:string;
+ //moduleChild:any[]=[];
+ indexvalue:Post[];
+ Mnvalid:any;
+ validMn:string;
+
+ message:string;
+    show: boolean;
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 testExecution:boolean;
 displayModule:boolean;
 displayFeature:boolean;
 displayImport:boolean;
+<<<<<<< HEAD
 //selectedModule:any;
 
     constructor(private router: Router,private route:ActivatedRoute,private module:ProjectDetailServiceComponent) {
     this.show = false;
     this.mo=false;
+=======
+showDropDown:boolean;
+everyTime: any;
+//selectedModule:any;
+
+
+    constructor(private router: Router,private route:ActivatedRoute,private module:ProjectDetailServiceComponent) {
+    this.show = false;
+      this.mo=false;
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
     this.execute=false;
  this.testExecution=false;
  this.displayModule=false;
  this.displayFeature=false;
  this.displayImport=false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
     }
  
  
 
       ngOnInit(){
+<<<<<<< HEAD
 //var index=0;
 
             let dataFromProjectSelectionDropdown=sessionStorage.getItem('key');
@@ -107,18 +149,97 @@ this.module.childModuleDetails(index)
 
 
 
+=======
+        
+
+             let dataFromProjectSelectionDropdown=sessionStorage.getItem('key');
+             this.projectName=dataFromProjectSelectionDropdown;
+ this.module.projectDetails().subscribe(moduleData =>{this.moduleName=moduleData;
+console.log("jjjkk")
+ //this.updateLastSeen(this.moduleName);
+ });
+
+      }
+
+ngOnDestroy(){
+ console.log("destroy")
+  clearInterval(this.everyTime);
+
+
+}
+
+manualtoggle(clickModule,index){
+ this.sMN=clickModule;
+ this.ind=index;
+ //alert(this.ind)
+//alert(index)
+ 
+ 
+// this.module.childModuleDetails(clickModule)
+// .subscribe(moduleData =>{this.moduleChild=moduleData;this.indexvalue=this.moduleChild[0].moduleId;console.log(this.moduleChild) });
+
+ 
+this.module.moId(clickModule).subscribe(moduleData =>{this.selectedMod=moduleData;this.verificationModule(this.selectedMod)
+;this.indexvalue=this.selectedMod[0].unitedFM});
+
+//alert(this.validMn)
+
+}
+
+verificationModule(vMF){
+  //console.log(vMF)
+  this.validMn=vMF[0].moduleName;
+  //alert( this.validMn)
+ // console.log(vMF[0].unitedFM.length)
+  //console.log(this.sMN)
+  //for(var i=0;i<=vMF[0].unitedFM.length;i++){
+ //console.log(vMF[0].unitedFM[i].featureName)
+     //this.indexvalue=vMF[0].unitedFM[i];
+  //console.log(vMF[0].unitedFM[0].featureName)
+//   if (this.validMn==this.sMN){
+// this.indexvalue=vMF[0].unitedFM[0].featureName;
+//}
+
+//}  
+
+
+  }
+   //this.Mnvalid=this.selectedMod[0].unitedFM[0].moduleName
+    
+
+        mobile(){
+          this.mo=true;
+          this.execute=false;
+          this.show=false;
+
+        }
+
+        execution(){
+          this.execute=true;
+          this.mo=false;
+          this.show=false;
+
+        }
+
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
  
         changeShowStatus(){
 //alert( this.show)
            this.show = true;
            this.testExecution=false;
+<<<<<<< HEAD
            this.mo=false;
+=======
+             this.mo=false;
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
            this.execute=false; 
  
         }
     
         showTestExecution(){
 //alert("2")
+<<<<<<< HEAD
    this.show = false;
    this.testExecution=true;
    this.mo=false;
@@ -126,23 +247,49 @@ this.module.childModuleDetails(index)
         }
 
         goCreateModule(){
+=======
+this.show = false;
+   this.testExecution=true;
+        }
+
+        goCreateModule(){
+      this.everyTime=setInterval(() => {
+      this.ngOnInit();
+ 
+ }, 1000);
+      //console.log("kk")
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
           //var displayModule:string
           this.displayModule=true;
           this.displayFeature=false;
           this.displayImport=false;
+<<<<<<< HEAD
           //alert("yy")
           //this.router.navigate(['CreateModule'],{relativeTo:this.route})
         }
+=======
+
+  }
+
+
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
            goCreateFeature(){
           this.displayFeature=true;
           this.displayModule=false;
           this.displayImport=false;
+<<<<<<< HEAD
+=======
+          //console.log("went")
+          //this. ngOnDestroy()
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
         }
        goImport(){
          //alert("1st")
           this.displayImport=true;
           this.displayModule=false;
           this.displayFeature=false;
+<<<<<<< HEAD
         }
 
         mobile(){
@@ -161,5 +308,11 @@ this.module.childModuleDetails(index)
         connect(){
           this.con=true;
        } 
+=======
+        }
+
+  
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 
 }

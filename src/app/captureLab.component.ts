@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import { Component,OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CaptureLabServiceComponent} from './captureLab.service';
 import { Post } from './post';
+=======
+import { Component} from '@angular/core';
+
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 @Component({
   selector: 'app-cap',
  
@@ -10,6 +16,7 @@ import { Post } from './post';
            
      })//componrnt  closing
 
+<<<<<<< HEAD
 export class CaptureLabComponent implements OnInit  {
  
    devicesName:String;
@@ -52,3 +59,17 @@ export class CaptureLabComponent implements OnInit  {
       
 
    }
+=======
+export class CaptureLabComponent  {
+  
+   
+    constructor(){
+
+    }
+
+ 
+
+      
+
+}
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6

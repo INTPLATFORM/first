@@ -20,14 +20,22 @@ h1 {
           position: absolute;
           left :0%;
           width: 188px;
+<<<<<<< HEAD
           height: 700px;
+=======
+          height: 800px;
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
           border : 3px solid black;
         }
         div.a {
             position: relative;
             left : 187px;
             width: 1219px;
+<<<<<<< HEAD
             height: 700px;
+=======
+            height: 800px;
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
             border: 3px solid black;
             
         }
@@ -62,7 +70,11 @@ h1 {
           }
 
  .button {
+<<<<<<< HEAD
     background-color: #4CAF50; /* Green */
+=======
+    background-color: #4CAF50; / Green /
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
     border: none;
     color: white;
     padding: 13px 20px;
@@ -73,12 +85,21 @@ h1 {
     margin: 4px 2px;
     cursor: pointer;
 }
+<<<<<<< HEAD
 
 .button1 {background-color: #008CBA;margin-left: 100px} /* Blue */
 .button2 {   
              background-color: #f44336;margin-left: 100px} /* Red */ 
 .button3 {background-color: #555555;margin-left: 100px} /* Black */
  
+=======
+/*
+.button1 {background-color: #008CBA;margin-left: 100px} / Blue /
+.button2 {   
+             background-color: #f44336;margin-left: 100px} / Red / 
+.button3 {background-color: #555555;margin-left: 100px} / Black /
+ */
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
  /* div.j {
     background-color: lightgrey;
     width: 50px;
@@ -136,7 +157,11 @@ th.active:{
 }
 
  .button {
+<<<<<<< HEAD
     background-color: #4CAF50; /* Green */
+=======
+    background-color: #4CAF50; / Green /
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
   /*  border: none;
     color: white;
     padding: 13px 20px;

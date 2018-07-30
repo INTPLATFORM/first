@@ -1,14 +1,24 @@
+<<<<<<< HEAD
 import { Component, OnInit} from '@angular/core';
 import { Http,Response } from '@angular/http';
 //import {ProjectSelectionServiceComponent} from './projectSelection.service';
 
 import { TestExecutionServiceComponent  } from './testExecutuion.service';
 import {Post} from './post';
+=======
+
+
+import { Component, OnInit} from '@angular/core';
+
+
+import { ProjectDetailServiceComponent  } from './pDetail.service';
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
 @Component({
 selector: 'app-test',
 
 templateUrl:  './html/testExecution.html',
   styleUrls: ['./css/testExecution.css'],
+<<<<<<< HEAD
   providers : [ TestExecutionServiceComponent ]
 
 
@@ -18,10 +28,19 @@ export class TestExecutionComponent implements OnInit  {
       //    { moduleName : "Features" , moduleId : 1 }
       //  ]
      
+=======
+  providers : [ ProjectDetailServiceComponent ]
+
+
+       }) // componrnt  closing
+
+export class TestExecutionComponent implements OnInit  {
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
        moduleNames = [] ;
        featureNames = [];
        typeArray = [];
        priorityArray = [];
+<<<<<<< HEAD
        testScriptsData = [];
       // testScript = [];
        demoArrayaData: String = "";
@@ -41,18 +60,30 @@ export class TestExecutionComponent implements OnInit  {
 
   constructor( private data: TestExecutionServiceComponent , private http:Http) {
     this.srch=false;      
+=======
+       demoArrayaData: String = "";
+
+
+
+  constructor( private data: ProjectDetailServiceComponent) {
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
   }
   ngOnInit() {
     this.data.projectDetails().subscribe(Data => this.moduleNames = Data) ;
     this.data.childModuleDetails1().subscribe(Data => this.featureNames = Data ) ;
     this.data.typeDetails().subscribe(Data => this.typeArray = Data) ;
     this.data.priorityDetails().subscribe(Data => this.priorityArray = Data) ;
+<<<<<<< HEAD
     this.data.testScriptDetails().subscribe(Data => this.testScriptsData = Data)
     // this.data.showDetails().subscribe(Data => this.testScript = Data)
+=======
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
     this.demoArrayaData = this.moduleNames[1];
 
   }
 
+<<<<<<< HEAD
  search(moduleId,featureName) {
    if(moduleId==undefined || featureName==undefined){
      alert("Please select Module and Feature")
@@ -101,3 +132,11 @@ export class TestExecutionComponent implements OnInit  {
 
 
 
+=======
+
+
+
+
+}
+
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6

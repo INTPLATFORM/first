@@ -1,4 +1,5 @@
 export interface Post{
+<<<<<<< HEAD
 
 	moduleChild:any[];
 	//featureName:any[];
@@ -21,3 +22,20 @@ export interface Post{
 }
 let mod: Array<any>;
   let fea: Array<any>;
+=======
+	moduleName:any;
+	moduleChild:any[];
+	unitedFM:any[];
+	moduleId:number;
+	//indexvalue:number;
+	//validMn:string;
+	length:number;
+	ProjectSelection:string;
+	indexvalue:any[]
+	typeScenario:string;
+	priorityScenario:string;
+	types:any;
+	
+
+}
+>>>>>>> 77ce3be70065bde173043ce957adf01d124cecc6
