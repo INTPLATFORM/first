@@ -1,24 +1,7 @@
 <div>
-<div class="container-fluid">
-
-    <div class="row">
-
-        <div class="col-lg-8">
   
-
-    <button  style="float: right;margin-right: 40px;padding: 5px;margin-top: 10px;background-color:blue; " >Sign Out</button>                                               
-
-</div> 
-
-       <div class="col-sm-4">
-
-           <button style="float: right;margin-right:30px;padding: 5px;margin-top: 10px;background-color:blue; ">Admin</button>                                                
-
-        </div>                  
-
-    </div>
-
-</div>
+  
+    <app-header></app-header>
 
     <br><br><br>
 
@@ -38,7 +21,15 @@
 
     </div>
 
-  
+  <form >
+    <div>
+    <input type="file"  (change)="filesPicked($event)" name="file" id="files" class="custom-file-input"  webkitdirectory mozdirectory msdirectory odirectory directory multiple="multiple"> <button><label for="files" class="custom-file-label">Import Project
+     </label>  </button>
+     <!-- <button type="button" (click)="upload()">Upload</button> -->
+    </div>
+    
+  </form>
+  <!-- <p>Directory: <input type="file" webkitdirectory mozdirectory /></p> -->
 
  <router-outlet  ></router-outlet>
 

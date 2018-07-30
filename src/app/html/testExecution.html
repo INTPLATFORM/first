@@ -1,0 +1,85 @@
+<style type="text/css">
+
+.div1 {
+    margin-left: 111px;
+    width: 671px;
+}
+
+select {
+    width: 150px;
+}
+
+.span1 {
+    margin-left: 40px;
+}
+
+.span2 {
+    margin-left: 43px;
+}
+
+button {
+    padding: 10px;
+    width: 110px;
+}
+
+
+  
+
+</style>
+
+<body style="background-color: cyan; margin-left: 230px;height: 60px;font-size: 20px; width: 976px;">
+  
+    <div class="div1">
+        <span>
+            Module :
+            <select style="width: 200px;height: 30px"  [(ngModel)]="moduleId"  >
+                <option *ngFor = "let var_moduleName of moduleNames" value="{{var_moduleName.moduleId}}">{{var_moduleName.moduleName}}</option>
+                
+            </select>
+        </span>
+        <span class="span1">
+            Feature :
+            <select style="width: 200px;height: 30px"  [(ngModel)]="featureName"  >
+                 <option *ngFor = "let var2_featureName of featureNames" value="{{var2_featureName.featureName}}">{{var2_featureName.featureName}}</option>
+                
+            </select>
+        </span>        
+    </div>
+
+    <br><br>
+
+    <br>
+
+    <button style="margin-left: 410px;margin-top: 10px" (click)=search(moduleId,featureName)>Search</button>
+    <button (click)=run(featureName)>Run</button>
+
+    <br><br>
+
+    
+        
+<div>
+        <table  *ngIf="srch==true" >
+          <thead >
+            <tr *ngIf="srch==true" >
+                    <th></th>
+                    <th>Feature Id</th>
+                    <th>Module Id </th>
+                    <th>Script Name</th>
+                    <th>Script Id</th>
+                    <th>Line Num</th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr  *ngFor = "let test of testScriptsData " >   
+                        <td *ngIf="srch==true" ><input type="checkbox" (click)=row(test)></td>             
+                        <td *ngIf="srch==true">{{test.moduleId}}</td>
+                        <td *ngIf="srch==true">{{test.featureId}}</td>
+                        <td *ngIf="srch==true">{{test.scriptName}}</td>
+                        <td *ngIf="srch==true">{{test.scriptId}}</td>
+                        <td *ngIf="srch==true">{{test.lineNum}}</td>
+                    </tr>               
+           </tbody>
+        </table>
+</div>
+  
+</body>

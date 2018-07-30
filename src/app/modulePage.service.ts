@@ -12,7 +12,7 @@ import {Post} from './post'
 export class ModuleServiceComponent {
 
  
- constructor(public http:Http){
+ constructor(private http:Http){
 
  }
    moduleServiceDetails(moduleName){
@@ -31,4 +31,6 @@ urlSearchParams.append('moduleName', moduleName);
  
 
   }
+
+
 }
